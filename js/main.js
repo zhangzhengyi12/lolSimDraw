@@ -1880,6 +1880,7 @@
 	    }, {
 	        key: "ewdis",
 	        value: function ewdis() {
+	        	this.ewbox.animate({right:"10px"})
 	            this.dom.fadeIn();
 	        }
 	    }, {
