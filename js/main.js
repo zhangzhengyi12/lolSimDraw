@@ -1752,6 +1752,7 @@
 	    _createClass(render, [{
 	        key: "renderBox",
 	        value: function renderBox(res) {
+	        	this.canClose = false
 	            this.model();
 	            if (this.titleBox) {
 	                this.settile();
@@ -1764,7 +1765,12 @@
 	    }, {
 	        key: "renderClose",
 	        value: function renderClose() {
+	        	if (!this.canClose) {
+	        		alert("请等待结果！")
+	        		return
+	        	}
 	            this.box.fadeOut();
+	            this.ewbox.css("right","195px")
 	            this.img = [];
 	            if (this.ewbox) {
 	                console.log("ewemp");
@@ -1854,11 +1860,12 @@
 	            }).then(function (ul) {
 
 	                for (var i = 0, len = ul.children().length + 1; i < len; i++) {
-
+	
 	                    (function (i) {
 	                        setTimeout(function () {
 	                            ul.find("li").eq(i).fadeIn();
 	                            if (_this.ewbox && i >= len - 1) {
+	                            	_this.canClose = true
 	                                _this.ewdis();
 	                            }
 	                        }, i * 700);
