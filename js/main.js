@@ -539,7 +539,7 @@
 	                return name;
 	            }
 
-	            if (Math.random() < 0.5) {
+	            if (Math.random() < 0.25) {
 	                name += "  七天体验";
 	            }
 	            return name;
